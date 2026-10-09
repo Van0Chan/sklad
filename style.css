@@ -30,7 +30,7 @@ body {
   background-color: #2b1d0f;
   background-image: url('https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/block/dirt.png');
   background-repeat: repeat;
-  background-size: 32px 32px;
+  background-size: 64px 64px;
   font-family: var(--mc-font);
   display: flex;
   justify-content: center;
