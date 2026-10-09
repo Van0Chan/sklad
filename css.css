@@ -10,7 +10,6 @@
 }
 
 :root {
-  /* Použije Mojangles, ak sa nenačíta, použije VT323 / Press Start 2P */
   --mc-font: 'Mojangles', 'VT323', 'Press Start 2P', monospace;
 }
 
@@ -27,11 +26,9 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  /* Pozadie: Minecraft Dirt textúra */
-  background-color: #48311a;
-  background-image: url('https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/block/dirt.png');
-  background-repeat: repeat;
-  background-size: 64px 64px;
+  /* Staré pozadie z Unsplash */
+  background: #000 url('https://images.unsplash.com/photo-1627856013091-fed6e4e30025?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
+  background-size: cover;
   font-family: var(--mc-font);
   display: flex;
   justify-content: center;
@@ -45,7 +42,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
 }
 
 /* Hlavné okno obchodu */
