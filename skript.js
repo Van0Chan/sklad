@@ -95,5 +95,7 @@ function renderItems() {
   });
 }
 
-renderCategories();
-renderItems();
+window.addEventListener("DOMContentLoaded", () => {
+  renderCategories();
+  renderItems();
+});
