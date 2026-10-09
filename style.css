@@ -27,7 +27,7 @@ body {
   width: 100vw;
   height: 100vh;
   /* Staré pozadie z Unsplash */
-  background: #000 url('https://images.unsplash.com/photo-1627856013091-fed6e4e30025?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
+  background: #000 url('https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/block/dirt.png') no-repeat center center;
   background-size: cover;
   font-family: var(--mc-font);
   display: flex;
