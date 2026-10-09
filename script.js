@@ -1,12 +1,12 @@
-const categories = ["ENCHANTMENTS", "BLOCKS", "TOOLS"];
-let currentCategory = "ENCHANTMENTS";
+const categories = ["ENCHANTY", "BLOKY", "NASTROJE","INE"];
+let currentCategory = "ENCHANTY";
 
 const shopItems = [
   {
     id: "silk_touch",
     name: "SILK TOUCH",
     level: "I",
-    category: "ENCHANTMENTS",
+    category: "ENCHANTY",
     price: 5,
     currencyIcon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/diamond.png",
     icon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/enchanted_book.png",
@@ -16,7 +16,7 @@ const shopItems = [
     id: "unbreaking",
     name: "UNBREAKING",
     level: "III",
-    category: "ENCHANTMENTS",
+    category: "ENCHANTY",
     price: 8,
     currencyIcon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/diamond.png",
     icon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/enchanted_book.png",
@@ -26,7 +26,7 @@ const shopItems = [
     id: "dirt_block",
     name: "DIRT",
     level: "64x",
-    category: "BLOCKS",
+    category: "BLOKY",
     price: 1,
     currencyIcon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/diamond.png",
     icon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/block/dirt.png",
@@ -36,7 +36,7 @@ const shopItems = [
     id: "iron_ingot",
     name: "IRON INGOT",
     level: "32x",
-    category: "TOOLS",
+    category: "INE",
     price: 3,
     currencyIcon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/diamond.png",
     icon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/iron_ingot.png",
