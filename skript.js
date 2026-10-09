@@ -46,6 +46,7 @@ const shopItems = [
 
 function renderCategories() {
   const container = document.getElementById("categoryTabs");
+  if (!container) return;
   container.innerHTML = "";
   
   categories.forEach(cat => {
@@ -63,6 +64,7 @@ function renderCategories() {
 
 function renderItems() {
   const grid = document.getElementById("itemsGrid");
+  if (!grid) return;
   grid.innerHTML = "";
 
   const filteredItems = shopItems.filter(item => item.category === currentCategory);
@@ -93,6 +95,5 @@ function renderItems() {
   });
 }
 
-// Inicializácia pri načítaní
 renderCategories();
 renderItems();
