@@ -5,22 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minecraft Server Shop</title>
   <style>
+    /* Načítanie tvojho fontu mojangles-v2.otf z repozitára */
     @font-face {
-      font-family: 'Minecraftia';
-      src: url('https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto-Regular.ttf');
+      font-family: 'Mojangles';
+      src: url('./mojangles-v2.otf') format('opentype'),
+           url('mojangles-v2.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
     :root {
-      --mc-font: 'VT323', 'Minecraftia', monospace;
-      --gui-bg: #c6c6c6;
-      --gui-border-light: #ffffff;
-      --gui-border-dark: #555555;
-      --gui-shadow: #373737;
-      --slot-bg: #8b8b8b;
-      --slot-border-dark: #373737;
-      --slot-border-light: #ffffff;
+      --mc-font: 'Mojangles', monospace, sans-serif;
     }
 
     * {
@@ -82,11 +77,11 @@
     }
 
     .shop-title {
-      font-size: 42px;
+      font-size: 36px;
       color: #ffaa00;
       text-shadow: 3px 3px 0px #3f2a00, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
       margin: 0;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
 
     /* Category Navigation */
@@ -98,7 +93,7 @@
 
     .tab-btn {
       font-family: var(--mc-font);
-      font-size: 24px;
+      font-size: 20px;
       padding: 6px 16px;
       background: #727272;
       color: #e0e0e0;
@@ -204,7 +199,7 @@
     }
 
     .item-title {
-      font-size: 22px;
+      font-size: 18px;
       color: #ffffff;
       text-shadow: 2px 2px 0px #000;
       margin: 4px 0 2px 0;
@@ -213,13 +208,13 @@
     }
 
     .item-level {
-      font-size: 18px;
+      font-size: 16px;
       color: #55ffff;
       text-shadow: 2px 2px 0px #000;
       margin-bottom: 8px;
     }
 
-    /* Price Section (Flexibly configurable currency) */
+    /* Price Tag (Iba číslo a ikona) */
     .item-price-tag {
       margin-top: auto;
       background: rgba(0,0,0,0.3);
@@ -227,26 +222,21 @@
       border-radius: 2px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       border: 1px solid rgba(0,0,0,0.5);
     }
 
-    .price-label {
-      font-size: 18px;
-      color: #aaaaaa;
-      text-shadow: 1px 1px 0px #000;
-    }
-
     .price-value {
-      font-size: 22px;
+      font-size: 20px;
       color: #ffaa00;
       text-shadow: 2px 2px 0px #000;
       font-weight: bold;
     }
 
     .currency-icon {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
     }
 
     /* Footer Buttons */
@@ -258,7 +248,7 @@
 
     .mc-button {
       font-family: var(--mc-font);
-      font-size: 22px;
+      font-size: 18px;
       padding: 8px 24px;
       background: #727272;
       color: #ffffff;
@@ -298,7 +288,7 @@
       border: 3px solid #55ff55;
       color: #fff;
       padding: 12px 24px;
-      font-size: 22px;
+      font-size: 18px;
       text-shadow: 2px 2px 0 #000;
       transition: transform 0.3s ease;
       z-index: 100;
@@ -331,7 +321,7 @@
 
     <!-- Spodné tlačidlá -->
     <div class="shop-footer">
-      <button class="mc-button" onclick="notify('Acia bola vrátená späť.')">◀ SPÄŤ</button>
+      <button class="mc-button" onclick="notify('Akcia bola vrátená späť.')">◀ SPÄŤ</button>
       <button class="mc-button btn-close" onclick="notify('Obchod bol zatvorený.')">ZAVRIEŤ ✖</button>
     </div>
   </div>
@@ -341,30 +331,21 @@
   </div>
 
   <script>
-    /* 
-      ===================================================================
-      KONFIGURÁCIA OBCHODU A PREDMETOV
-      Menu a menu ikonu si môžeš jednoducho prepísať priamo tu v kóde.
-      ===================================================================
-    */
     const SHOP_CONFIG = {
-      // Predvolená mena pre obchod (ak nie je špecifikovaná pri položke)
       defaultCurrency: "Diamond",
       defaultCurrencyIcon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/diamond.png"
     };
 
-    // Zoznam kategórií
     const categories = ["ENCHANTMENTS", "BLOCKS", "TOOLS"];
     let currentCategory = "ENCHANTMENTS";
 
-    // Zoznam predávaných predmetov
     const shopItems = [
       {
         id: "silk_touch",
         name: "SILK TOUCH",
         level: "I",
         category: "ENCHANTMENTS",
-        price: 5, // Cena v diamantoch
+        price: 5,
         currency: "Diamond",
         currencyIcon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/diamond.png",
         icon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/enchanted_book.png",
@@ -375,7 +356,7 @@
         name: "UNBREAKING",
         level: "III",
         category: "ENCHANTMENTS",
-        price: 8, // Cena v diamantoch
+        price: 8,
         currency: "Diamond",
         currencyIcon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/diamond.png",
         icon: "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.1/assets/minecraft/textures/item/enchanted_book.png",
@@ -405,7 +386,6 @@
       }
     ];
 
-    // Vykreslenie kategórií
     function renderCategories() {
       const container = document.getElementById("categoryTabs");
       container.innerHTML = "";
@@ -423,7 +403,6 @@
       });
     }
 
-    // Vykreslenie predmetov podľa vybranej kategórie
     function renderItems() {
       const grid = document.getElementById("itemsGrid");
       grid.innerHTML = "";
@@ -431,7 +410,7 @@
       const filteredItems = shopItems.filter(item => item.category === currentCategory);
 
       if (filteredItems.length === 0) {
-        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #777; font-size: 24px; padding: 40px;">V tejto kategórii nie sú žiadne položky.</div>`;
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #777; font-size: 20px; padding: 40px;">V tejto kategórii nie sú žiadne položky.</div>`;
         return;
       }
 
@@ -450,7 +429,6 @@
           <div class="item-title">${item.name}</div>
           <div class="item-level">${item.level || ''}</div>
           <div class="item-price-tag">
-            <span class="price-label">Cena:</span>
             <span class="price-value">${item.price}</span>
             <img src="${currIcon}" class="currency-icon" title="${item.currency || SHOP_CONFIG.defaultCurrency}">
           </div>
@@ -460,12 +438,10 @@
       });
     }
 
-    // Funkcia pre nákup
     function buyItem(item) {
       notify(`Kúpil si: ${item.name} ${item.level || ''} za ${item.price}x Diamond!`);
     }
 
-    // Zobrazenie notifikácie
     function notify(text) {
       const notif = document.getElementById("notification");
       const notifText = document.getElementById("notifText");
@@ -478,7 +454,6 @@
       }, 3000);
     }
 
-    // Inicializácia pri načítaní stránky
     renderCategories();
     renderItems();
   </script>
